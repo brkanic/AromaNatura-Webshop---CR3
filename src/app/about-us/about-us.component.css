@@ -1,0 +1,15 @@
+img{
+  float: left;
+  width: 40%; 
+  height: 50vh;
+  margin-top: 50px;
+  margin-right: 25px;
+}
+
+.text-about{
+  
+font-family: "Poppins", sans-serif;
+font-weight: 400;
+font-size: 1.2rem;
+margin-left: 10px;
+}

@@ -1,0 +1,47 @@
+<div class="container">
+  <h1 class="text-center bg-warning p-2 mt-2">Products</h1>
+  <div class="row row-cols-3">
+    <div *ngFor="let val of products; index as productID">
+      <div class="card my-2 shadow" style="width: 18rem">
+        <img
+          src="./assets/{{ val.img }}"
+          class="card-img-top p-2"
+          alt="{{ val.name }}"
+          width="200"
+          height="200"
+        />
+
+        <div class="card-body">
+          <h5 class="card-title">{{ val.name }}</h5>
+          <p class="card-text">Price: {{ val.price }} €</p>
+          <!--  <p class="card-text">{{ val.description }}</p> -->
+          <p *ngIf="val.availability; else notAvailable">Available</p>
+          <ng-template #notAvailable>
+            <span class="btnp">Not available</span>
+          </ng-template>
+          <div class="d-flex justify-content-between">
+            <!-- <button class="btn btn-warning" *ngIf="val.availability">
+              <a routerLink="details/{{ productID }}">Details</a>
+            </button>
+            <button class="btn btn-warning" *ngIf="val.availability">
+              Add to cart
+            </button>
+          </div> -->
+            <a
+              routerLink="/details/{{ productID }}"
+              *ngIf="val.availability"
+              class="btn btn-warning"
+              >Details</a
+            >
+            <a
+              (click)="addToCart(val)"
+              *ngIf="val.availability"
+              class="btn btn-warning"
+              >Add to Cart</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

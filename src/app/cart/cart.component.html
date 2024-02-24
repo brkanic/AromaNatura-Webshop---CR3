@@ -1,0 +1,35 @@
+<h2 class="p-2">CART INHALT</h2>
+<hr />
+<div class="container shadow-3 cart-inhalt">
+  <div class="d-flex justify-content-between firstRow">
+    <p>Products</p>
+    <p>Quantity</p>
+    <p>Price ($)</p>
+    <p>Delete</p>
+  </div>
+  <div
+    class="d-flex justify-content-between mt-2"
+    *ngFor="let val of items; index as i"
+  >
+    <div class="d-flex">
+      <img src="./assets/{{ val.img }}" width="60" height="20" />
+      <p>{{ val.name }}</p>
+    </div>
+    <div class="d-flex">
+      <p class="btn btn-secondary btn-sm" (click)="plusQtty(i)">+</p>
+      <p class="mx-1">{{ val.qtty }}</p>
+      <p class="btn btn-secondary btn-sm" (click)="minusQtty(i)">-</p>
+    </div>
+    <p>{{ val.qtty * val.price }} €</p>
+    <button class="btn btn-dark btn-sm" (click)="removeFromCart(i)">
+      &#10007;
+    </button>
+  </div>
+</div>
+<div>
+  <div>
+    <div class="d-flex justify-content-end container">
+      <h3 class="bill bg-warning">Total Bill: {{ total }} €</h3>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+footer{
+  background-color: rgba(0, 0, 0, 0.432);
+}
+.soc_media{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
+footer img{
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+}
+footer p{
+  text-align: center;
+}
