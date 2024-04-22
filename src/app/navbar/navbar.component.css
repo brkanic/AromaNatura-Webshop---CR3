@@ -1,21 +1,175 @@
-.navLinks a{
-text-decoration: none;
-font-family: "Poppins", sans-serif;
-font-weight: 600;
-font-style: normal;
-display: inline-block;
-padding: 10px;
-color: black;
+/* .navbar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
 }
 
-.icons a{
-  padding: 15px;
+.logo {
+  margin-right: auto;
 }
-.logo{
-  color: black;
-  padding: 10px;
-  font-family: "Mochiy Pop P One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+
+.menu-toggle {
+  cursor: pointer;
+  display: none;
+}
+
+
+.menu-toggle img {
+  width: 30px;
+  height: 30px;
+}
+
+.nav_icons {
+  margin-left: auto;
+  padding: 20px;
+}
+
+.nav_icons a{
+  margin-left: 1rem;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-links a {
   text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  padding: 10px;
+  color: #B16E31;
 }
+
+.navbar-links.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle{
+    display: block;
+  }
+  .nav_icons {
+    display: none;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding-left: 20px;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-links.show {
+    display: flex;
+  }
+
+  .nav_icons.show{
+    display: flex;
+  }
+
+  .navbar-links a {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+} */
+
+
+.navbar {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+}
+
+.logo {
+  margin-right: auto;
+}
+.logo a{
+  text-decoration: none;
+  color: black;
+}
+
+.menu-toggle {
+  cursor: pointer;
+  display: none; /* Hide by default */
+}
+
+.menu-toggle img {
+  width: 30px;
+  height: 30px;
+}
+
+.nav_icons {
+  margin-left: auto;
+  padding: 20px;
+}
+
+.nav_icons a{
+  margin-left: 1rem;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  padding: 10px;
+  color: #B16E31;
+}
+
+.navbar-links.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+
+  .navbar{
+    z-index: 2;
+  }
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding-left: 20px;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-links.show {
+    display: flex;
+  }
+
+  .navbar-links a {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+ 

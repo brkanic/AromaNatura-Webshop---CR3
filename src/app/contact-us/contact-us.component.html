@@ -1,0 +1,35 @@
+<div class="mycontainer">
+  <div class="form-container">
+    <div class="left-container">
+      <div class="left-inner-container">
+        <h2>Let's Chat</h2>
+        <p>Adress: Barcelona Squer 84, New York</p>
+        <br />
+        <p>Tel: +69432589654</p>
+        <br />
+        <p>email: aroma.natura&#64;yahoo.com</p>
+        <br />
+      </div>
+    </div>
+    <div class="right-container">
+      <div class="right-inner-container">
+        <form action="#" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <h2 class="lg-view">Contact</h2>
+          <h2 class="sm-view">Let's Chat</h2>
+          <p>* Required</p>
+
+          <input type="text" placeholder="Name *" formControlName="name" />
+          <input type="email" placeholder="Email *" formControlName="email" />
+          <input type="text" placeholder="Company" formControlName="company" />
+          <input type="phone" placeholder="Phone" formControlName="phone" />
+          <textarea
+            rows="4"
+            placeholder="Message"
+            formControlName="message"
+          ></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

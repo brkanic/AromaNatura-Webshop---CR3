@@ -1,11 +1,14 @@
-import { Injectable } from '@angular/core';
+  import { Injectable } from '@angular/core';
 import { Iproduct } from './Iproduct';
+import { products } from './products';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CartService {
     items: Iproduct[]=[];
+   
     
       constructor() { }
     
@@ -49,18 +52,21 @@ export class CartService {
         this.items.splice(index, 1);
       }
 
-      calculateServiceCharge(total: number): number {
-        return total * 0.1;
-      }
-    
-      calculateDiscount(total: number): number {
-        if (total > 40) {
-          return total * 0.15;
+      cartTotalWithServiceAndDiscount(products: Iproduct[]): { total: number, serviceCharge: number, discountedAmount: number }{
+        let total = this.cartTotal(products);
+        let serviceCharge = total * 0.1; // 10% service charge
+        let totalWithService = total + serviceCharge;
+        let discountedAmount = 0;
+      
+        if (totalWithService > 40) {
+          let discount = totalWithService * 0.15; // 15% discount
+          discountedAmount = discount;
+          totalWithService -= discount;
         }
-        return 0;
-      }
-    
-      calculateFinalTotal(total: number, discount: number): number {
-        return total - discount;
-      }
-}
+      
+        return { total: total, serviceCharge: serviceCharge, discountedAmount: discountedAmount };}
+        
+  
+     }
+  
+     

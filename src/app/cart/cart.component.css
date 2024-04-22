@@ -1,8 +1,16 @@
 .cart-inhalt{
-  background: rgba(234, 234, 53, 0.756);
+  background: rgb(184,110,49);
 }
 
 .bill{
   width: 25%;
-  
+  margin-bottom: 30px;
+}
+.myform{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.total{
+  background-color: rgb(184,110,49);
 }

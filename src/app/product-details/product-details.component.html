@@ -1,8 +1,8 @@
-<div class="row g-0 mt-2 container">
+<div class="row g-0 mt-2 container g-3">
   <div class="col-md-4" *ngIf="product">
     <img
       src="./assets/{{ product.img }}"
-      class="img-fluid rounded-start"
+      class="rounded-start products-img img-thumbnail"
       alt="{{ product.name }}"
     />
   </div>
@@ -21,9 +21,10 @@
     <p class="card-text">{{ product.price }} €</p>
     <!-- <p class="card-text">{{ product.qtty }} </p> -->
     <div class="d-flex justify-content-start">
-      <a routerLink="#" class="btn btn-dark" (click)="addToCart()"
+      <a routerLink="#" class="btn btn-dark mx-2" (click)="addToCart()"
         >Add to cart</a
       >
+      <a routerLink="/products" class="btn btn-dark">Back to shop</a>
     </div>
   </div>
 </div>

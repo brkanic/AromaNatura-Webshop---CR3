@@ -1,6 +1,6 @@
 .hero-container{
   border: black solid 1px;
-  /* background-image: url(./assets/hero_cover.jpg); */
+  /* background-image: url('../assets/cover-2.jpg'); */
   height: 60vh;
   background-position: center;
   background-size:cover;

@@ -1,35 +1,134 @@
-<h2 class="p-2">CART INHALT</h2>
-<hr />
-<div class="container shadow-3 cart-inhalt">
-  <div class="d-flex justify-content-between firstRow">
-    <p>Products</p>
-    <p>Quantity</p>
-    <p>Price ($)</p>
-    <p>Delete</p>
-  </div>
-  <div
-    class="d-flex justify-content-between mt-2"
-    *ngFor="let val of items; index as i"
-  >
-    <div class="d-flex">
-      <img src="./assets/{{ val.img }}" width="60" height="20" />
-      <p>{{ val.name }}</p>
-    </div>
-    <div class="d-flex">
-      <p class="btn btn-secondary btn-sm" (click)="plusQtty(i)">+</p>
-      <p class="mx-1">{{ val.qtty }}</p>
-      <p class="btn btn-secondary btn-sm" (click)="minusQtty(i)">-</p>
-    </div>
-    <p>{{ val.qtty * val.price }} €</p>
-    <button class="btn btn-dark btn-sm" (click)="removeFromCart(i)">
-      &#10007;
-    </button>
-  </div>
-</div>
-<div>
+<div class="container border rounded-3 shadow-lg mt-2">
+  <h2 class="p-2">CART INHALT</h2>
+  <hr />
+
+  <table class="table table-hover">
+    <thead>
+      <tr class="table-dark text-center">
+        <th scope="col">Products</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let val of items; index as i">
+      <tr>
+        <th scope="row">
+          <img src="./assets/{{ val.img }}" width="60" height="40" />
+          <span>{{ val.name }}</span>
+        </th>
+        <td class="text-center">
+          <span class="btn btn-secondary btn-sm" (click)="plusQtty(i)">+</span>
+          <span class="mx-1">{{ val.qtty }}</span>
+          <span class="btn btn-secondary btn-sm" (click)="minusQtty(i)">-</span>
+        </td>
+        <td class="text-center">
+          <p>{{ val.qtty * val.price }} €</p>
+        </td>
+        <td class="text-center">
+          <button class="btn btn-danger btn-sm" (click)="removeFromCart(i)">
+            &#10007;
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <div>
-    <div class="d-flex justify-content-end container">
-      <h3 class="bill bg-warning">Total Bill: {{ total }} €</h3>
+    <div>
+      <div class="d-flex justify-content-end my-2">
+        <div class="card" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between">
+              Bill:
+              <span class="text-end">{{ total | number : "1.2-2" }} €</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              Service Charge (10%):<span class="text-end">
+                + {{ serviceCharge | number : "1.2-2" }} €</span
+              >
+            </li>
+            <li
+              *ngIf="discountedAmount > 0"
+              class="list-group-item d-flex justify-content-between"
+            >
+              Discount (15%):
+              <span class="text-end"
+                >{{ discountedAmount | number : "1.2-2" }} €</span
+              >
+            </li>
+          </ul>
+          <div class="card-footer total d-flex justify-content-between">
+            Total:<span class="text-end">
+              {{ totalWithDiscount | number : "1.2-2" }} €</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end my-3">
+        <button class="btn btn-dark" (click)="showForm()">Next step</button>
+      </div>
+    </div>
+
+    <div class="myform" *ngIf="displayForm">
+      <h3>Information for delivery</h3>
+      <p>(please fill all fields)</p>
+      <form
+        class="border border-dark-subtle p-3 rounded-3 my-2"
+        [formGroup]="deliveryForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="my-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            formControlName="exampleInputEmail"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="Name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="Name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="Tel" class="form-label">Tel</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="tel"
+            formControlName="Tel"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Delivery address:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="address"
+            formControlName="address"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Add note to order</label>
+          <textarea
+            name="message"
+            id="message"
+            cols="75"
+            rows="10"
+            formControlName="message"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-dark my-1">Order</button>
+      </form>
     </div>
   </div>
 </div>

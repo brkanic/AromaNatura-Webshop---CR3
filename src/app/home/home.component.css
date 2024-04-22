@@ -1,5 +1,47 @@
+/* -------SERVICES--------- */
+.services{
+  display: flex;
+  justify-content: space-around;
+  padding: 0 0 5% 0;
+  flex-wrap: wrap;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  width: 350px;
+  height: 235px;
+  background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #FFF7B1 0%, rgba(255, 255, 255, 0) 71.88%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #FFFFFF;
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 23px;
+  transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+  cursor: pointer;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.card img{
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  padding: 5%;
+  
+}
+
+.card-text{
+  font-size: 1.5rem !important;
+  text-align: center !important;
+  color: #B16E31;
+  text-transform: uppercase;
+  font-weight: 600;
+  
+}
+
+
+
 .aromaNatura{
   display: flex;
+ 
   gap: 2rem;
 }
 
@@ -12,24 +54,61 @@ font-style: normal;
 
 .hero-container{
   border: black solid 1px;
-  /* background-image: url(./assets/hero_cover.jpg); */
+ 
   height: 60vh;
   background-position: center;
   background-size:cover;
 }
+.hero-image{
+  height: 60vh;
+  width: 100%;
+  position: relative;
+}
 
 .hero-text{
+  position: absolute;
   width: 40%;
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding:25px ;
-  margin-left: 30%;
-  margin-top: 7%;
-  background-color: rgba(33, 33, 32, 0.799);
+  top: 12rem;
+  left: 28rem;
+  /* margin-left: 30%;
+  margin-top: 7%; */
+  background-color: #3a0c0dc2;
   color: antiquewhite;
 }
 .hero-text p{
   font-size: 1.3rem;
 }
+h2{
+  padding: 1%;
+  text-align: center;  
+  position: relative;
+}
+h2::before{
+height: 5px;
+  content: "";
+  background-color: #B16E31;
+  width: 15%;
+  position: absolute; /* Position the line absolutely */
+  bottom: 2.5%; /* Position the line at the bottom of the h2 */
+  left: 36%; /* Ensure the line starts from the left */
+  display: block;}
+
+  @media screen and (max-width: 768px) {
+    h2::before{
+      
+        left: 20%; 
+        }
+ .aromaNatura{
+  justify-content: center;
+  flex-wrap: wrap;
+ }
+ .hero-text{
+  top: 8rem;
+  left: 14rem;
+ }
+  }

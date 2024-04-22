@@ -1,4 +1,9 @@
+h1{
+  color: white;
+  background: rgb(78,10,23);
+}
 .btnp{
  padding: 5px;
- border-bottom: yellow solid 2px;
+ border-bottom: rgb(78,10,23) solid 2px;
 }
+
